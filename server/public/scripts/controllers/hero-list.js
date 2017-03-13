@@ -16,15 +16,13 @@ app.controller('HeroListController', ['$http', function($http){
       });
     }//end function
 
-   self.deleteHero = function(heroId){
+   self.deleteHero = function deleteHero(heroId){
       console.log('delete was clicked');
       console.log(heroId);
       $http({
         method: 'DELETE',
-        url: '/delete',
-        data: heroId
+        url: '/heroes/' + heroId
       }).then(function(response){
-        
         getHero();
       })
     }
